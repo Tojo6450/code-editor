@@ -1,0 +1,52 @@
+import axios from 'axios';
+
+// Create an Axios instance with your backend base URL
+const api = axios.create({
+  baseURL: 'http://localhost:8000/api', 
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// --- API Endpoints ---
+
+export const UserAPI = {
+  // Register a new user (sends OTP)
+  register: (name, email) => api.post('/user/register', { name, email }),
+
+  // Verify OTP and Login
+  verify: (otp, verifyToken) => api.post('/user/verify', { otp, verifyToken }),
+
+  // Get current user profile
+  getProfile: () => api.get('/user/profile'),
+};
+
+export const ChatAPI = {
+
+  createSession: () => api.post('/chat/new'),
+
+  getAllSessions: () => api.get('/chat/all'),
+
+  getConversation: (id) => api.get(`/chat/conv/${id}`),
+
+  generateCode: (sessionId, prompt) => api.post(`/chat/add/${sessionId}`, { prompt }),
+
+  // Delete a chat session
+  deleteSession: (id) => api.delete(`/chat/${id}`),
+};
+
+export default api;
