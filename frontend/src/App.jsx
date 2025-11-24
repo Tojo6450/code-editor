@@ -4,10 +4,10 @@ import {
   Code2, Play, Trash2, Menu, X, RefreshCw
 } from 'lucide-react';
 
-// --- API CONFIGURATION ---
-const API_BASE_URL = "http://localhost:8000/api";
 
-// --- SUB-COMPONENTS ---
+const API_BASE_URL = "https://code-editor-30tn.onrender.com";
+
+
 
 const EditorSettings = ({ fontSize, setFontSize, lineHeight, setLineHeight }) => {
   return (
