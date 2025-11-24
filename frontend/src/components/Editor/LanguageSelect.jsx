@@ -16,6 +16,8 @@ const LanguageSelect = ({ language, setLanguage }) => {
           <option value="python">Python</option>
           <option value="javascript">JavaScript</option>
           <option value="cpp">C++</option>
+          <option value="cpp">Java</option>
+          <option value="cpp">Sql</option>
         </select>
         <Code2 className="absolute right-3 top-3.5 text-slate-400 pointer-events-none" size={18} />
       </div>
