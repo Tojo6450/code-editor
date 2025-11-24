@@ -87,7 +87,7 @@ npm run db:init  # Runs the migration script to create tables
 npm run dev      # Starts the server on localhost:8000
 ```
 
-### 1. Backend Setup
+### 1. Frontend Setup
 ```bash
 cd frontend
 npm install
