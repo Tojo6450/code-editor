@@ -8,7 +8,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check localStorage on initial load to persist login
     const token = localStorage.getItem("token");
     const storedUser = localStorage.getItem("user");
 
@@ -30,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   const logoutUser = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    localStorage.removeItem("chatHistory"); // Optional: clear history on logout
+    localStorage.removeItem("chatHistory"); 
     setUser(null);
     setIsAuth(false);
   };

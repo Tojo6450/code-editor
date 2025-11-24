@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Create an Axios instance with your backend base URL
+
 const api = axios.create({
   baseURL: 'https://code-editor-30tn.onrender.com/api', 
   headers: {
@@ -22,7 +22,6 @@ api.interceptors.request.use(
   }
 );
 
-// --- API Endpoints ---
 
 export const UserAPI = {
   // Register a new user (sends OTP)
@@ -45,7 +44,6 @@ export const ChatAPI = {
 
   generateCode: (sessionId, prompt) => api.post(`/chat/add/${sessionId}`, { prompt }),
 
-  // Delete a chat session
   deleteSession: (id) => api.delete(`/chat/${id}`),
 };
 
